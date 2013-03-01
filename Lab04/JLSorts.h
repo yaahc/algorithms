@@ -19,21 +19,30 @@ void swap(int* A, int index1, int index2) {
    A[index2] = temp;
 }
 
-void fancy_heap_print(int* A, int count) {
-    int i = 0, perrow = 1;
-    while(i < count) {
-        for(int j = 0; j < perrow && i < count; j++, i++) {
-            cout << A[i] << " ";
+int partition(int* A, int left, int right, int pivotIndex) {
+    int pivot = A[pivotIndex];
+    swap(A, pivotIndex, right);
+    int curr = left;
+    for(int i = left; i <= right - 1; i++) {
+        if(A[i] < pivot) {
+            swap(A, i, curr);
+            curr++;
         }
-        perrow *= 2;
-        cout << endl;
+    }
+    swap(A, curr, right);
+    return curr;
+}
+
+void jlusby_QuickSort(int* A, int left, int right) {
+    if(left < right) {
+        int newPivot = partition(A, left, right, right);
+        jlusby_QuickSort(A, left, newPivot-1);
+        jlusby_QuickSort(A, newPivot+1, right);
     }
 }
 
 void jlusby_HeapSort(int* A, int count) {
     max_heap(A, count);
-
-    /* fancy_heap_print(A, count); */
 
     int end = count-1;
     while(end > 0) {
@@ -41,7 +50,6 @@ void jlusby_HeapSort(int* A, int count) {
         end--;
         sift_down(A, 0, end);
     }
-    /* fancy_heap_print(A, count); */
 }
 
 void max_heap(int* A, int count) {

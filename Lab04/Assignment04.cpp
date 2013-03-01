@@ -15,8 +15,8 @@ int main() {
         
         /* jlusby_InsertionSort(list, num); */
         /* jlusby_MergeSort(list, 0, num-1); */
-        jlusby_HeapSort(list, num);
-
+        //jlusby_HeapSort(list, num);
+        jlusby_QuickSort(list, 0, num-1);
         for(int i = 0; i < num; i++)
             cout << list[i] << endl;
 
