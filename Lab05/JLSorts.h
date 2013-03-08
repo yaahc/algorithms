@@ -1,6 +1,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string.h>
+#include <list>
+#include <cmath>
 
 using namespace std;
 
@@ -11,6 +13,7 @@ void jlusby_HeapSort(int* A, int count);
 void max_heap(int* A, int count);
 int sift_down(int* A, int root, int end);
 void jlusby_QuickSort(int* A, int count);
+void jlusby_BucketSort(float* A, int count);
 
 
 void swap(int* A, int index1, int index2) { 
@@ -119,3 +122,23 @@ void jlusby_Merge(int* A, int p, int q, int r) {
     memcpy(&A[p], temp, (r-p+1)*sizeof(int));
     delete[] temp;
 }
+
+void jlusby_BucketSort(float* A, int count) {
+    int num_buckets = log(count)/log(2);
+    std::list<float> buckets[num_buckets];
+    for(int i = 0; i < count; i++) {
+        int index = A[i]/(1.0/num_buckets);
+        buckets[index].push_back(A[i]);
+    }
+    for(int i = 0; i < num_buckets; i++) { 
+        buckets[i].sort();
+    }
+    int index = 0;
+    for(int i = 0; i < num_buckets; i++) {
+        while(!buckets[i].empty()) {
+            A[index++] = buckets[i].front();
+            buckets[i].pop_front();
+        }
+    }
+}
+

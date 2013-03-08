@@ -1,14 +1,15 @@
 #include <iostream>
 #include "JLSorts.h"
+#include <cmath>
 
 using namespace std;
 
 int main() {
     int num;
-    int* list;
+    float* list;
     cin >> num;
     while(num != 0) {
-        list = new int[num];
+        list = new float[num];
 
         for(int i = 0; i < num; i++)
             cin >> list[i];
@@ -16,7 +17,8 @@ int main() {
         /* jlusby_InsertionSort(list, num); */
         /* jlusby_MergeSort(list, 0, num-1); */
         //jlusby_HeapSort(list, num);
-        jlusby_QuickSort(list, 0, num-1);
+        /* jlusby_QuickSort(list, 0, num-1); */
+        jlusby_BucketSort(list, num);
         for(int i = 0; i < num; i++)
             cout << list[i] << endl;
 
