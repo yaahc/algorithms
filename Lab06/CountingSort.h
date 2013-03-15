@@ -22,15 +22,10 @@ void countingSort(int* A, int n) {
     C = (int*) malloc(sizeof(int)*(1+max));
     memset(C,0,sizeof(int)*(1+max));
 
-    printf("%d %d\n", n, max);
     for(i = 0; i < n; i++)
         C[A[i]]++;
-    printf("%d ", C[0]);
-    for(i = 1; i < max+1; i++) {
+    for(i = 1; i < max+1; i++)
         C[i] += C[i-1];
-        printf("%d ", C[i-1]);
-    }
-    printf("\n");
     for(i = n-1; i >= 0; i--) {
         B[C[A[i]]-1] = A[i];
         C[A[i]]--;
