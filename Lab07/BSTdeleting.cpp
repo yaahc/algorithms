@@ -15,5 +15,10 @@ int main(int argc,char **argv)
         cin >> input;
     }
     /* cout << "done inserting" << endl; */
+    cin >> input;
+    while(input != "ENDDELETE") {
+        Tree.Delete(input);
+        cin >> input;
+    }
     Tree.Print("POST");
 }

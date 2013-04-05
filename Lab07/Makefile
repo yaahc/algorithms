@@ -1,5 +1,5 @@
 # variable definitions
-CC     = g++
+CC     = g++ -g
 CFLAGS =
 LIBS   =
 

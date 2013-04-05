@@ -10,10 +10,11 @@ int main(int argc,char **argv)
     BST Tree;
     string input;
     cin >> input;
-    while(input.compare("ENDINSERT")) {
+    while(input != "ENDINSERT") {
+        //cout << "got here" << endl;
         Tree.Insert(input);
         cin >> input;
     }
-    /* cout << "done inserting" << endl; */
+    //cout << "done inserting" << endl;
     Tree.Print("POST");
 }
