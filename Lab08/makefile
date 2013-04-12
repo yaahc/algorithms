@@ -1,9 +1,9 @@
 CC=g++
 CFLAGS=-c -Wall -g
 LDFLAGS=
-SOURCES=matrixChaining.cpp
+SOURCES=matrixPrinting.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=ass08
+EXECUTABLE=ass208
 
 all: $(SOURCES) $(EXECUTABLE)
 
