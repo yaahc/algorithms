@@ -1,0 +1,20 @@
+
+#include <iostream>
+#include "BST.h"
+
+using namespace std;
+
+int main() {
+    char letters[6];
+    char curr;
+    cin >> curr;
+    while(curr != 'Z') {
+        letters[curr-65]++;
+        cin >> curr;
+    }
+    for(int i = 0; i < 6; i++) {
+        cout << letters[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
